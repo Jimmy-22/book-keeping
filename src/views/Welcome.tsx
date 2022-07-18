@@ -1,12 +1,16 @@
 import { defineComponent } from 'vue';
 import { RouterView } from 'vue-router';
+import s from './Welcome.module.scss'
+import logo from '../assets/icons/potato-chips.svg'
 
 export const Welcome = defineComponent({
   setup: (props, context) => {
-    return () => (
-      <div>
-        <RouterView />
-      </div>
-    )
+    return () => <div class={s.wrapper}>
+      <header>
+        <img src={logo} alt="" />
+        <h1>薯条记账</h1>  
+      </header>
+      <main><RouterView /></main>
+    </div>
   }
 })
