@@ -1,8 +1,9 @@
 .wrapper {
-   height: 100vh;
+   height: calc(100vh - var(--welcome-nav-height));
    display: flex;
    flex-direction: column;
-   background-image: -webkit-linear-gradient(#3FB0AC,#C5D7A1);
+   background-image: -webkit-linear-gradient(var(--welcome-bg-top),var(--welcome-bg-bottom));
+   margin-bottom: var(--welcome-nav-height);
    > header{
     flex-shrink: 0;
     > img{ width: 50px }
