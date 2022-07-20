@@ -1,10 +1,11 @@
-import { compile, defineComponent, Transition } from 'vue';
-import { RouterView } from 'vue-router';
+import { defineComponent, Transition, VNode } from 'vue';
+import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router';
 import s from './Welcome.module.scss'
 import logo from '../assets/icons/potato-chips.svg'
 
 export const Welcome = defineComponent({
   setup: (props, context) => {
+    type Y = { Component: VNode, route: RouteLocationNormalizedLoaded }
     return () => <div class={s.wrapper}>
       <header>
         <img src={logo} alt="" />
@@ -12,7 +13,16 @@ export const Welcome = defineComponent({
       </header>
       <main class={s.main}>
         <RouterView name="main">
-         {(obj: any)=> <Transition name="slide-fade"><obj.Component /></Transition>}
+         {({Component: X, route: R}: Y)=> 
+          <Transition 
+            name="slide-fade" 
+            enterFromClass={s.slide_fade_enter_from}
+            enterActiveClass={s.slide_fade_enter_active}
+            leaveToClass={s.slide_fade_leave_to}
+            leaveActiveClass={s.slide_fade_leave_active}>
+            {X}
+          </Transition>
+         }
         </RouterView>
       </main>
       <footer>
