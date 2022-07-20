@@ -1,20 +1,13 @@
-import s from './WelcomeLayout.module.scss'
+import s from './Welcome.module.scss'
 import welcome3 from '../../assets/icons/welcome3.svg'
-import { RouterLink } from 'vue-router';
-import { WelcomeLayout } from './WelcomeLayout';
 
-export const Third = () => (
-  <WelcomeLayout>
-    {{
-      icon: () => <img class={s.welcome1} src={welcome3}/>,
-      title: () => <h2>数据可视化<br/>收支一目了然</h2>,
-      buttons: () => <>
-        <RouterLink class={s.fake} to="/start">跳过</RouterLink> 
-        <RouterLink to="/welcome/4">下一页</RouterLink> 
-        <RouterLink to="/start">跳过</RouterLink> 
-      </>
-    }}
-  </WelcomeLayout>
-)
+export const Third = () => {
+  return <div class={s.card}>
+    <img src={welcome3} />
+    <h2>数据可视化<br/>收支一目了然</h2>
+  </div>
+}
 
 Third.displayName = 'Third'
+
+
