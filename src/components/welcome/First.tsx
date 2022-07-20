@@ -1,9 +1,10 @@
 import s from './Welcome.module.scss'
-import welcome1 from '../../assets/icons/welcome1.svg'
 
 export const First = () => {
   return <div class={s.card}> 
-    <img src={welcome1} />
+    <svg>
+      <use xlinkHref='#welcome1'></use>
+    </svg>
     <h2>薯条记账<br />你的省钱助手</h2>
   </div>
 }

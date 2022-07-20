@@ -8,7 +8,9 @@ export const Welcome = defineComponent({
     type Y = { Component: VNode, route: RouteLocationNormalizedLoaded }
     return () => <div class={s.wrapper}>
       <header>
-        <img src={logo} alt="" />
+        <svg>
+          <use xlinkHref='#logo'></use>
+        </svg>
         <h1>薯条记账</h1>  
       </header>
       <main class={s.main}>
