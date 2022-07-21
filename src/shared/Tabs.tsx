@@ -14,7 +14,6 @@ export const Tabs = defineComponent({
   setup: (props, { slots, emit }) => {
     return () => {
       const array = slots.default?.() 
-      console.log(array)
       if (!array) { return () => null }
       for (let i = 0; i < array.length; i++) {
         if (array[i].type !== Tab) {
@@ -31,6 +30,9 @@ export const Tabs = defineComponent({
             </li>  
           )}
         </ol>
+        <div>
+          { array.find(tab => tab.props?.name === props.selected) }
+        </div>
       </div>
     }
   }
