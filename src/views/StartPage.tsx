@@ -1,6 +1,7 @@
 import { defineComponent } from "vue";
 import s from './StartPage.module.scss';
 import { Button } from '../shared/Button';
+import { PlusButton } from '../shared/PlusButton';
 export const StartPage = defineComponent({
   setup: (props, context) => {
     const onClick = () => {
@@ -11,6 +12,7 @@ export const StartPage = defineComponent({
         <div class={s.button_wrapper}>
           <Button class={s.button} onClick={onClick}>开始记账</Button>
         </div>
+        <PlusButton />
       </div>
     )
   }
