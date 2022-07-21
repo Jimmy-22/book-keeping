@@ -1,12 +1,18 @@
-import { defineComponent } from "vue";
+import { defineComponent, PropType  } from "vue";
 import s from './PlusButton.module.scss'
-import { Icon } from "./Icon";
+import { Icon, IconName } from "./Icon";
  
 export const PlusButton = defineComponent({
-  setup() {
+  props: {
+    iconName: {
+      type: String as PropType<IconName>,
+      required: true
+    }
+  },
+  setup(props) {
     return () => (
       <div class={s.plusButton}>
-        <Icon name="plus" class={s.icon}></Icon>
+        <Icon name={props.iconName} class={s.icon}></Icon>
       </div>
     )
   }

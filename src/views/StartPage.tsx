@@ -12,7 +12,7 @@ export const StartPage = defineComponent({
         <div class={s.button_wrapper}>
           <Button class={s.button} onClick={onClick}>开始记账</Button>
         </div>
-        <PlusButton />
+        <PlusButton iconName='plus' />
       </div>
     )
   }
