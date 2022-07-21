@@ -1,8 +1,8 @@
 :root {
   --welcome-card-bg: white;
   --welcome-text: white;
-  --welcome-bg-top: #3FB0AC;
-  --welcome-bg-bottom: #C5D7A1;
+  --welcome-bg-top: #ea986c;
+  --welcome-bg-bottom: #f3ca7e;
   --welcome-nav-gap: 8px;
   --welcome-nav-height: 64px;
   -z-index-bottom-nav: 10;
@@ -14,7 +14,12 @@
   --button-radius: 8px;
   --float-button-text: white;
   --float-button-bg: var(--button-bg);
-  --navbar-bg-top: #ea986c;
-  --navbar-bg-bottom: #f3ca7e;
+  --navbar-bg-top: var(--welcome-bg-top);
+  --navbar-bg-bottom: var(--welcome-bg-bottom);
   --navbar-text: white;
+  --overlay-mask-bg: rgba(0, 0, 0, 0.5);
+  --overlay-bg: white;
+  --top-safe-area-height: 24px;
+  --z-index-bottom-nav: 8; 
+  --z-index-overlay: 16;
 }
