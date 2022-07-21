@@ -6,6 +6,7 @@ import { Navbar } from '../shared/Navbar';
 import { PlusButton } from '../shared/PlusButton';
 import { Icon } from "../shared/Icon";
 import { Overlay } from "../shared/Overlay";
+import { RouterLink } from 'vue-router';
 export const StartPage = defineComponent({
   setup: (props, context) => {
     const overlayVisible = ref(false)
@@ -24,9 +25,13 @@ export const StartPage = defineComponent({
           <Icon name="welcome1" style={{width: '128px', height: '128px'}}/>
         </Center>
         <div class={s.button_wrapper}>
-          <Button class={s.button}>开始记账</Button>
+          <RouterLink to='/item/create'>
+            <Button class={s.button}>开始记账</Button>
+          </RouterLink>
         </div>
-        <PlusButton iconName='plus' />
+        <RouterLink to='/item/create'>
+          <PlusButton iconName='plus' />
+        </RouterLink>
         { overlayVisible.value && <Overlay onClose={() => {overlayVisible.value = false}}></Overlay>}
       </div>
     )
