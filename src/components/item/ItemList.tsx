@@ -1,6 +1,7 @@
-import { defineComponent, PropType, reactive, ref } from 'vue';
+import { defineComponent, PropType, reactive, ref, watchEffect } from 'vue';
 import { MainLayout } from '../../layouts/MainLayout';
 import { Icon } from '../../shared/Icon';
+import { Overlay } from 'vant';
 import { Tab, Tabs } from '../../shared/Tabs';
 import { Time } from '../../shared/time';
 import s from './ItemList.module.scss';
@@ -27,11 +28,17 @@ export const ItemList = defineComponent({
         end: time.lastDayOfYear()
       }
     ]
+    watchEffect(() => {
+      if (refSelected.value === '自定义时间') {
+        overlayVisible.value = true
+      }
+    })
+    const overlayVisible = ref(false)
     return () => (
       <MainLayout>{{
         title: () => '薯条记账',
         icon: () => <Icon name="menu" />,
-        default: () => (
+        default: () => <>
           <Tabs classPrefix={'customTabs'} v-model:selected={refSelected.value}>
             <Tab name='本月'>
               <ItemSummary 
@@ -54,7 +61,12 @@ export const ItemList = defineComponent({
                   endDate={timeList[2].end.format()} />
             </Tab>
           </Tabs>
-        )
+          <Overlay show={overlayVisible.value} class={s.overlay}>
+            <div class={s.overlay_inner}>
+              <head>请选择时间</head>
+            </div>
+          </Overlay>
+        </>
       }}</MainLayout>
     )
   }
